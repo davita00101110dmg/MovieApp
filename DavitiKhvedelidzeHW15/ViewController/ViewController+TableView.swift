@@ -1,36 +1,13 @@
 //
-//  ViewController.swift
+//  ViewController+TableView.swift
 //  DavitiKhvedelidzeHW15
 //
-//  Created by Dato Khvedelidze on 12.07.22.
+//  Created by Dato Khvedelidze on 14.07.22.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
-    
-    @IBOutlet weak var table: UITableView!
-    
-    let movies = [
-        Movie.movies.filter { $0.seen },
-        Movie.movies.filter { !$0.seen }
-    ]
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-//    func toggleMovie(cell: MovieCell) {
-//        if let indexPath = table.indexPath(for: cell) {
-//            var movie = movies[indexPath.section][indexPath.row]
-//            movie.seen = movie.seen == true ? false : true
-//            table.reloadData()
-//        }
-//    }
-        
-}
-
-extension ViewController: UITableViewDelegate {
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         movies.count
     }
@@ -63,13 +40,11 @@ extension ViewController: UITableViewDelegate {
         detailsVC.movieDesc = "Description: \(movie.description)"
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }
-}
-
-extension ViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let movie = movies[indexPath.section][indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MovieCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
         
         cell.movieTitle.text = movie.title
         cell.movieRating.text = "\(movie.imdb)"

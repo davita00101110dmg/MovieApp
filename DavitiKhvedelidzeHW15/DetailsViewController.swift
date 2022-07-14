@@ -7,8 +7,7 @@
 
 import UIKit
 
-class DetailsViewController: ViewController {
-    
+class DetailsViewController: UIViewController {
     
     @IBOutlet weak var movieTitleField: UILabel!
     @IBOutlet weak var movieReleaseDateField: UILabel!
