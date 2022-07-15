@@ -7,9 +7,11 @@
 
 import Foundation
 
-enum Genre: String {
-    case comedy, action, drama
+enum Genre: String, CaseIterable {
+    case action, drama, comedy
 }
+
+var genreToFilteryBy = "all"
 
 struct Movie: Hashable {
     
@@ -29,11 +31,11 @@ struct Movie: Hashable {
     let imdb: Double
     let mainActor: String
     let seen: Bool
-    let isFavourite: Bool
+    var isFavourite: Bool
     let description: String
     let genre: Genre
  
-    static let movies = [
+    static var movies = [
         Movie(title: "Avatar", releaseDate: "2009", imdb: 7.9, mainActor: "Sam Worthington", seen: false, isFavourite: false, description: "A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.", genre: .action),
         Movie(title: "I Am Legend", releaseDate: "2007", imdb: 7.2, mainActor: "Will Smith", seen: false, isFavourite: false, description: "Years after a plague kills most of humanity and transforms the rest into monsters, the sole survivor in New York City struggles valiantly to find a cure.", genre: .drama),
         Movie(title: "The Wolf of Wall Street", releaseDate: "2013", imdb: 8.2, mainActor: "Leonardo DiCaprio", seen: true, isFavourite: true, description: "Based on the true story of Jordan Belfort, from his rise to a wealthy stock-broker living the high life to his fall involving crime, corruption and the federal government.", genre: .comedy),

@@ -15,7 +15,6 @@ extension UICollectionViewCell {
     }
 }
 
-
 extension UICollectionView {
     
     func registerNib<T: UICollectionViewCell>(class: T.Type) {

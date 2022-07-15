@@ -7,13 +7,13 @@
 
 import UIKit
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension HomePageViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        movies.count
+        moviesFiltered.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        movies[section].count
+        moviesFiltered[section].count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -30,7 +30,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailsVC = storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
-        let movie = movies[indexPath.section][indexPath.row]
+        let movie = moviesFiltered[indexPath.section][indexPath.row]
         detailsVC.movieTitle = movie.title
         detailsVC.movieRating = "Imdb rating \(movie.imdb)"
         detailsVC.movieReleaseDate = "Release Date \(movie.releaseDate)"
@@ -43,7 +43,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let movie = movies[indexPath.section][indexPath.row]
+        let movie = moviesFiltered[indexPath.section][indexPath.row]
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
         
         cell.movieTitle.text = movie.title

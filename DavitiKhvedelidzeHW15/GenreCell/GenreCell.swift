@@ -10,17 +10,13 @@ import UIKit
 class GenreCell: UICollectionViewCell {
 
     @IBOutlet weak var genreLbl: UILabel!
-
-    
-    var movieGenre: Movie! {
-        didSet {
-            genreLbl.text = movieGenre.genre.rawValue
-        }
-    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
+    func setupCell(genre: String) {
+        self.genreLbl.text = genre
+    }
+    
 }
