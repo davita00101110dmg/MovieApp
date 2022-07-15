@@ -7,7 +7,7 @@ Version 1.1 **added categories**
 <p float="left">
 
   <img src="https://user-images.githubusercontent.com/75265099/179227770-7f513a51-193c-4bc5-a25e-610d19c1112a.png" width="400" />
-  <img src="https://user-images.githubusercontent.com/75265099/179228021-fbe98f02-3b39-402c-b726-ea8446691708.png" width="400" />
+  <img src="https://user-images.githubusercontent.com/75265099/179230276-8bbfb6b8-c677-40b0-9cfd-4945f47d5afc.png" width="400" />
 </p>
 
 Version 1.0
